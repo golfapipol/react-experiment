@@ -9,7 +9,11 @@ services:
   nextjs:
     build: 
       context: nextjs
+  nginx:
+    build: 
+      context: nextjs
+      dockerfile: Dockerfile.nginx
     ports:
-    - "3001:3000"
+    - "3001:80"
   
   
