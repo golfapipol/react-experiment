@@ -5,6 +5,9 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import About from './pages/About'
+import Home from './pages/Home'
+import Users from './pages/Users'
 
 export default function App() {
   return (
@@ -42,14 +45,3 @@ export default function App() {
   );
 }
 
-function Home() {
-  return <h2>Home</h2>;
-}
-
-function About() {
-  return <h2>About</h2>;
-}
-
-function Users() {
-  return <h2>Users</h2>;
-}

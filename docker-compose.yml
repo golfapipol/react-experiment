@@ -1,0 +1,15 @@
+version: "3.5"
+
+services: 
+  react-router:
+    build: 
+      context: react-router
+    ports:
+    - "3000:80"
+  nextjs:
+    build: 
+      context: nextjs
+    ports:
+    - "3001:3000"
+  
+  
