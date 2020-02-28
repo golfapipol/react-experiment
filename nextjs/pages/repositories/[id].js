@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import cookie from 'js-cookie'
+import fetch from 'isomorphic-unfetch'
 
 class RepositoryPage extends Component {
     static async getInitialProps(context) {
@@ -8,12 +10,32 @@ class RepositoryPage extends Component {
         return { repository: result }
     }
 
+    constructor(props) {
+        super(props)
+        this.state = {
+            counter: 0,
+        }
+    }
+
+    saveCookie() {
+        let counter = cookie.get('counter')
+        if (!counter) {
+            counter = this.state.counter
+        }
+        console.log(`counter ${counter}`)
+        cookie.set('counter', (+counter) + 1, { expires: 365 })
+    }
+
     render() {
         return <div>
         Repository
-        <ol>
-          {users.map((user, i) => <li key={i}>{user.login}</li>)}
-        </ol>
+        <div>
+            {this.props.repository.full_name}
+            <button type="button" onClick={(e) => {
+                this.saveCookie()
+            }}>save cookies</button>
+            {this.state.counter}
+        </div>
       </div>
     }
 }

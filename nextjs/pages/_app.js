@@ -26,6 +26,10 @@ class MyApp extends App {
             <li>
               <Link href="/users">Users</Link>
             </li>
+            <li>
+              <Link href="/repositories">Repositories</Link>
+            </li>
+            
           </ul>
         </nav>
         <Component {...pageProps} />

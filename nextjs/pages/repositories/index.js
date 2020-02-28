@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import fetch from 'isomorphic-unfetch'
+import Link from 'next/link'
 
 class RepositoriesPage extends Component {
   static async getInitialProps(context) {
@@ -21,7 +22,7 @@ class RepositoriesPage extends Component {
       <div>
         <h2>Repositories</h2>
         <ul>
-          {this.props.repositories.map((repository, i) => <li key={i}>{repository.full_name}</li>)}
+          {this.props.repositories.map((repository, i) => <li key={i}><Link href={`/repositories/${repository.id}`}>{repository.full_name}</Link></li>)}
         </ul>
       </div>
     )
